@@ -1,0 +1,39 @@
+.main-layout {
+    min-height: 550px;
+}
+.header {
+    min-height: 200px;
+}
+.main-content {
+    width: 80%;
+    margin: auto;
+    background-color:#fff;
+}
+.news-listing {
+    width: 100%;
+    list-style: none;
+
+}
+.news-heading {
+    background: orange;
+    padding: 23px;
+}
+li:nth-child(odd){
+    background: red;
+
+}
+li:nth-child(even){
+    background: grey;
+
+}
+.news-item {
+    padding: 10px;
+}
+.news-comment {
+    padding-right: 5px;
+}
+.point {
+    padding-right: 5px;
+}
+
+

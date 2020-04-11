@@ -1,0 +1,29 @@
+<section class="main-layout">
+  <div class="header"></div>
+  <div class="main-content">
+    <ul class="news-listing" *ngIf="news">
+      <li class="news-heading"> top | new
+
+      </li>
+      <li *ngFor="let newsItem of news" class="news-item">
+        <span class="news-comment">{{ newsItem?.num_comments }}</span>
+        <span class="point">{{ newsItem?.points }} </span>
+        <span class="upvote" (click)="upVote(newsItem)"> Upvote </span>
+        <span>{{ newsItem?.title }}
+          ( <a href="newsItem?.url">{{ newsItem?.url }}</a> )
+          by
+          {{ newsItem?.author }}
+          {{ newsItem?.created_at | dateAgo }}
+
+          [<a href="javasccirpt:void(0)" (click)="hideNews(newsItem)">Hide</a>]
+        
+
+          </span>
+          
+
+      </li>
+      
+    </ul>
+    <div> <a href="javascirpt:void(0)" (click)="loadMore()">Load More</a></div>
+  </div>
+</section>
