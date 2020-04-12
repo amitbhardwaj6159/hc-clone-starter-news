@@ -5,15 +5,16 @@ import { NewsRoutingModule } from './news-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NewsService } from './services';
 import { DateAgoPipe } from './pipe/date-ago.pipe';
+import { ExtractDomainPipe } from './pipe/extract-domain.pipe';
 
 @NgModule({
-  declarations: [NewsListingComponent, DateAgoPipe],
-  providers: [NewsService, DateAgoPipe, DatePipe],
+  declarations: [NewsListingComponent, DateAgoPipe, ExtractDomainPipe],
+  providers: [NewsService, DateAgoPipe, DatePipe, ExtractDomainPipe],
   imports: [
     CommonModule,
     NewsRoutingModule,
     HttpClientModule
   ],
-  exports: [DateAgoPipe]
+  exports: [DateAgoPipe, ExtractDomainPipe]
 })
 export class NewsModule { }

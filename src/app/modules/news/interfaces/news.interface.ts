@@ -13,4 +13,5 @@ export interface INewsItem {
     points: number;
     num_comments: number;
     created_at_i: number;
+    objectID: number;
 }
