@@ -86,7 +86,15 @@ $x-large: 1200;
     }
   }
 
-  
+  &__link {
+    display: inline-block;
+    cursor: pointer;
+
+    &--general {
+      text-decoration: none;
+      color: $c-black;
+    }
+  }
 
   &__dark-color {
     color: $dark-color-font;

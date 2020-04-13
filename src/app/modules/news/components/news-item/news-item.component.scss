@@ -28,11 +28,10 @@ $c-black: #000;
 
   &__data {
     padding: 8px 10px;
-    min-width: 50px;
+    min-width: 80px;
 
     @media (min-width: 768px) {
         padding:8px 5px;
-        min-width: auto;
       }
       
     &--align-right {
