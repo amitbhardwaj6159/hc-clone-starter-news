@@ -1,0 +1,35 @@
+
+$c-bg-color-primary: #f6f6f0;
+$c-bg-color-secondary: #e6e6e0;
+
+.table {
+  font-size: 12px;
+  width: 100%;
+  border-collapse: collapse;
+
+  &__row {
+    background-color: $c-bg-color-primary;
+
+    &:nth-child(2n) {
+      background-color: $c-bg-color-secondary;
+    }
+  }
+
+  &__data {
+    padding: 8px, 10px;
+    min-width: 50px;
+
+    @media (min-width: 768px) {
+        padding:8px, 5px;
+        min-width: auto;
+      }
+      
+    &--align-right {
+      text-align: right;
+    }
+
+    &--align-center {
+      text-align: center;
+    }
+  }
+}

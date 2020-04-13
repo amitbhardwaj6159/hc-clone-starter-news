@@ -48,20 +48,13 @@ export class NewsListingComponent implements OnInit {
 
   }
 
-  public upVoteNewsItem(newsItem: INewsItem): void {
-    newsItem.points++;
-    this.newsService.upVoteNewsItem(newsItem);
-
-  }
   public loadMore(): void {
     this.query.page++;
     this.getNewsListing();
   }
 
-  public hideNewsItem(newsItem: INewsItem): void {
+  public removeNewsItem(newsItem: INewsItem): void {
     this.newsItems = this.newsItems.filter(item => item.objectID !== newsItem.objectID);
-    this.newsService.hideNewsItem(newsItem);
-
   }
 
 }

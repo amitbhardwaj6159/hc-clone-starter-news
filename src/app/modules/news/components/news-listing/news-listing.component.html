@@ -10,42 +10,10 @@
     </ul>
   </div>
 
-<section>
+<section *ngIf="newsItems && newsItems.length">
     <table class="table">
         <tbody class="table__body">
-                <tr class="table__row" *ngFor="let post of newsItems">
-                    <td class="table__data table__data--align-right">
-                        {{post?.num_comments}}
-                    </td>
-                    <td class="table__data table__data--align-right ">
-                        {{ post?.points }}
-                        <a class="table__link" (click)="upVoteNewsItem(post)">
-                            <i class="arrow-up"></i>
-                        </a>
-                    </td>
-                    <td class="table__data">
-                        <span class="table__title">
-                            {{post?.title}}</span>
-                        <ng-container *ngIf="!!post?.url">
-                            <span class="table__light-color">&nbsp;(&nbsp;</span>
-                            <span class="table__dark-color">
-                              <a href="{{post?.url}}" target="_blank">
-                              {{post?.url | extractDomain }}
-                            </a>
-                            </span>
-                            <span class="table__light-color">&nbsp;)&nbsp;</span>
-                        </ng-container>
-
-                        <span class="table__light-color">&nbsp;by&nbsp;</span>
-                        <span> {{post?.author}}</span> &nbsp;
-                        <span class="table__dark-color">{{post?.created_at}}</span> &nbsp;
-                        <span class="table__dark-color">[ &nbsp;</span>
-                        <a class="table__link table__link--general"
-                            (click)="hideNewsItem(post)">Hide</a>
-                        <span class="table__dark-color">&nbsp;]</span>
-                    </td>
-                </tr>
-        </tbody>
+            <app-news-item [newsItem] ="newsItem" (removeNewsItem)="removeNewsItem($event)" *ngFor="let newsItem of newsItems"></app-news-item>
     </table>
     <div class="load-more" *ngIf="!showLoader && query?.nbPages > query?.page">
         <a class="load-more__link" (click)="loadMore()">More</a>

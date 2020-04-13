@@ -1,0 +1,32 @@
+<tr class="table__row" >
+    <td class="table__data table__data--align-right">
+        {{newsItem?.num_comments}}
+    </td>
+    <td class="table__data table__data--align-right ">
+        {{ newsItem?.points }}
+        <a class="table__link" (click)="upVoteNewsItem(newsItem)">
+            <i class="arrow-up"></i>
+        </a>
+    </td>
+    <td class="table__data">
+        <span class="table__title">
+            {{newsItem?.title}}</span>
+        <ng-container *ngIf="!!newsItem?.url">
+            <span class="table__light-color">&nbsp;(&nbsp;</span>
+            <span class="table__dark-color">
+              <a href="{{newsItem?.url}}" target="_blank">
+              {{newsItem?.url | extractDomain }}
+            </a>
+            </span>
+            <span class="table__light-color">&nbsp;)&nbsp;</span>
+        </ng-container>
+
+        <span class="table__light-color">&nbsp;by&nbsp;</span>
+        <span> {{newsItem?.author}}</span> &nbsp;
+        <span class="table__dark-color">{{newsItem?.created_at}}</span> &nbsp;
+        <span class="table__dark-color">[ &nbsp;</span>
+        <a class="table__link table__link--general"
+            (click)="hideNewsItem(newsItem)">Hide</a>
+        <span class="table__dark-color">&nbsp;]</span>
+    </td>
+</tr>

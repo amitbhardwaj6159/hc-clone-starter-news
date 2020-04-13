@@ -1,6 +1,6 @@
 {
   "name": "hn-clone-starter-angular",
-  "short_name": "hn-clone-starter-angular",
+  "short_name": "Hacker News",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

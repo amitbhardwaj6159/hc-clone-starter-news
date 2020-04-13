@@ -1,3 +1,5 @@
+
+/** color variable.. TODO: Need to put it in separate file **/
 $c-primary-color: #ff6601;
 $c-white: #FFF;
 $c-black: #000;
@@ -12,7 +14,7 @@ $medium: 768px;
 $large: 992px;
 $x-large: 1200;
 
-/** Mixin **/
+/** Mixin TODO: Need to put it in separate file **/
 
 @mixin clearfix {
   &:after {
@@ -22,112 +24,25 @@ $x-large: 1200;
   }
 }
 
-@function parseInt($n) {
-  @return $n / ($n * 0 + 1);
-}
-
-
-@mixin rem($property, $values) {
-  $px: ();
-  /* 3 */
-  $rem: ();
-  /* 3 */
-
-  @each $value in $values {
-    /* 4 */
-
-    @if $value==0 or $value==auto or $value== !important {
-      //sass-lint:disable-line no-important
-      /* 5 */
-      $px: append($px, $value);
-      $rem: append($rem, $value);
-    }
-
-    @else {
-      $unit: unit($value);
-      /* 6 */
-      $val: parseInt($value);
-      /* 6 */
-
-      @if $unit=='px' {
-        /* 7 */
-        $px: append($px, $value);
-        $rem: append($rem, ($val / 10 + rem));
-      }
-
-      @if $unit=='rem' {
-        /* 7 */
-        $px: append($px, ($val * 10 + px));
-        $rem: append($rem, $value);
-      }
-    }
-  }
-
-  @if $px==$rem {
-    /* 8 */
-    #{$property}: $px;
-    /* 9 */
-  }
-
-  @else {
-    #{$property}: $px;
-    /* 9 */
-    #{$property}: $rem; //sass-lint:disable-line  no-duplicate-properties
-    /* 9 */
-  }
-}
-
-
-/** max-width: 320px */
-@mixin media-small {
-  @media (max-width: $small) {
-    @content;
-  }
-}
-
-/** min-width: 768px */
-@mixin media-medium {
-  @media (min-width: $medium) {
-    @content;
-  }
-}
-
-/** min-width: 1024 */
-@mixin media-large {
-  @media (min-width: $large) {
-    @content;
-  }
-}
-
-/** min-width: 1320 */
-@mixin media-x-large {
-  @media (min-width: $xlarge) {
-    @content;
-  }
-}
-
 /** End Mixin**/
 
 
 .header {
     padding: 10px, 5px;
-    @include clearfix;
+    // @include clearfix;
     background-color: $c-primary-color;
   
-  
-  
     &__logo {
-      @include rem(padding, 2px 5px);
-      @include rem(font-size, 10px);
+      padding: 2px, 5px;
+      font-size: 10px;
       border: 1px solid $c-white;
       color: $c-white;
       float: left;
-  
     }
   
     &__action-list {
-      @include rem(padding, 0 0 0 15px);
-      @include rem(font-size, 12px);
+      padding: 0 0 0 15px;
+      font-size: 12px;
       margin: 0;
       list-style: none;
       float: left;
@@ -138,8 +53,8 @@ $x-large: 1200;
     }
   
     &__action-link {
-      @include rem(padding, 0 10px 0 0);
-      @include rem(margin-right, 10px);
+      padding: 0 10px 0 0;
+      margin-right: 10px;
       padding: 0 10px 0 0;
       text-decoration: none;
       color: $c-black;
@@ -159,7 +74,7 @@ $x-large: 1200;
   }  
 
 .table {
-  @include rem(font-size, 12px);
+  font-size: 12px;
   width: 100%;
   border-collapse: collapse;
 
@@ -178,24 +93,6 @@ $x-large: 1200;
     &--general {
       text-decoration: none;
       color: $c-black;
-    }
-  }
-
-  &__data {
-    @include rem(padding, 8px 10px);
-    @include rem(min-width, 50px);
-
-    @include media-medium {
-      @include rem(padding, 8px 5px);
-    //   min-width: auto;
-    }
-
-    &--align-right {
-      text-align: right;
-    }
-
-    &--align-center {
-      text-align: center;
     }
   }
 
@@ -218,7 +115,7 @@ $x-large: 1200;
   }
 
   .loader {
-    @include rem(width, 50px);
+    width: 50px;
     display: block;
     margin: 20px auto;
   
