@@ -1,11 +1,13 @@
 
 $c-bg-color-primary: #f6f6f0;
 $c-bg-color-secondary: #e6e6e0;
+$c-black: #000;
 
 .table {
   font-size: 12px;
   width: 100%;
   border-collapse: collapse;
+  
 
   &__row {
     background-color: $c-bg-color-primary;
@@ -14,13 +16,22 @@ $c-bg-color-secondary: #e6e6e0;
       background-color: $c-bg-color-secondary;
     }
   }
+  &__link {
+    display: inline-block;
+    cursor: pointer;
+
+    &--general {
+      text-decoration: none;
+      color: $c-black;
+    }
+  }
 
   &__data {
-    padding: 8px, 10px;
+    padding: 8px 10px;
     min-width: 50px;
 
     @media (min-width: 768px) {
-        padding:8px, 5px;
+        padding:8px 5px;
         min-width: auto;
       }
       

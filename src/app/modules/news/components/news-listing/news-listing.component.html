@@ -8,12 +8,14 @@
             <a class="header__action-link" href="#">New</a>
         </li>
     </ul>
-  </div>
+</div>
 
 <section *ngIf="newsItems && newsItems.length">
     <table class="table">
         <tbody class="table__body">
-            <app-news-item [newsItem] ="newsItem" (removeNewsItem)="removeNewsItem($event)" *ngFor="let newsItem of newsItems"></app-news-item>
+            <tr class="table__row" *ngFor="let newsItem of newsItems">
+            <app-news-item [newsItem] ="newsItem" (removeNewsItem)="removeNewsItem($event)" ></app-news-item>
+            </tr>
     </table>
     <div class="load-more" *ngIf="!showLoader && query?.nbPages > query?.page">
         <a class="load-more__link" (click)="loadMore()">More</a>
