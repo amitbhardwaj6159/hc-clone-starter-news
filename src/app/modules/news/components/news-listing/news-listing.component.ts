@@ -27,9 +27,11 @@ export class NewsListingComponent implements OnInit {
       this.newsService.getNewsListing(this.query)
       .pipe(take(1))
       .subscribe((response: INews) => {
-        this.showLoader = false;
-        this.query.nbPages = response.nbPages;
-        this.initializeNewsStates(response.hits);
+        if (response) {
+          this.showLoader = false;
+          this.query.nbPages = response.nbPages;
+          this.initializeNewsStates(response.hits);
+        }
 
       }, () => { this.showLoader = false; });
     }
